@@ -1,0 +1,44 @@
+# Lexless Configuration
+# Copy this file to config.yaml and adjust settings
+
+# Video download settings
+download:
+  output_dir: "downloads"
+  audio_format: "mp3"
+  audio_bitrate: "192k"
+
+# Speaker identification settings
+speaker:
+  # Number of speakers to detect (usually 2 for interviewer + guest)
+  num_speakers: 2
+  # Which speaker to remove (1-indexed, 1 = first speaker, 2 = second speaker)
+  # Leave empty for manual selection or auto-detect interviewer
+  speaker_to_remove: 1
+  
+  # Method: "duration" to remove shorter speaker, "first" to remove first detected, "custom" for manual
+  detection_method: "duration"
+  
+  # Configuration for specific known interviewers
+  known_interviewers:
+    lex_fridman:
+      # Characteristics of Lex's speech pattern (placeholder)
+      # In production, you might want voice features or patterns
+      description: "Lex Fridman interview style"
+      
+# Processing settings
+processing:
+  # Smooth transitions at cut points (in seconds)
+  transition_smooth: 0.1
+  
+  # Minimum segment length to keep (in seconds)
+  min_segment_length: 2.0
+  
+  # Whether to apply noise reduction
+  noise_reduction: false
+
+# Output settings
+output:
+  filename_pattern: "{original_name}_clean"
+  format: "mp3"
+  normalize_audio: true
+
