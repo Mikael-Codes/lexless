@@ -20,10 +20,34 @@ git clone https://github.com/mikael-codes/lexless.git
 cd lexless
 ```
 
-2. Install dependencies:
+2. Install system dependencies (required for building some Python packages):
+   
+   **On Fedora/RHEL:**
+   ```bash
+   sudo dnf install -y python3-devel
+   ```
+   
+   **On Ubuntu/Debian:**
+   ```bash
+   sudo apt-get install -y python3-dev
+   ```
+   
+   **On macOS:**
+   ```bash
+   xcode-select --install
+   # or if using Homebrew
+   brew install python3
+   ```
+   
+   **On Arch Linux:**
+   ```bash
+   sudo pacman -S python
+   ```
+
+3. Install Python dependencies:
 ```bash
 # Option 1: Install as a package (recommended)
-python -m pip install .
+python -m pip install -e .
 
 # Option 2: Install dependencies only
 python -m pip install -r requirements.txt
@@ -31,7 +55,7 @@ python -m pip install -r requirements.txt
 
 **Note:** If `pip` is not in your PATH, use `python -m pip` instead.
 
-3. Set up Hugging Face token:
+4. Set up Hugging Face token:
    
    Lexless uses the pyannote speaker diarization model which requires Hugging Face authentication.
    
@@ -69,7 +93,7 @@ python -m pip install -r requirements.txt
       lexless URL --hf-token YOUR_TOKEN
       ```
 
-4. Copy and edit configuration:
+5. Copy and edit configuration:
     ```bash
     # On Linux/Mac:
     cp config.example.yaml config.yaml
@@ -160,6 +184,13 @@ output:
 5. **Output**: Saves cleaned audio file
 
 ## Troubleshooting
+
+### Cannot compile `Python.h` / Building numpy from source fails
+- You need to install Python development headers on your system
+- **Fedora/RHEL**: `sudo dnf install -y python3-devel`
+- **Ubuntu/Debian**: `sudo apt-get install -y python3-dev`
+- **Arch Linux**: `sudo pacman -S python`
+- **macOS**: `xcode-select --install` or use Homebrew Python
 
 ### "No Hugging Face token provided"
 - Set your token: `export HF_TOKEN=your_token`

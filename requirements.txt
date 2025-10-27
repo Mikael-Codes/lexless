@@ -1,7 +1,7 @@
 yt-dlp>=2023.11.16
-pyannote.audio==3.1.1
-torch==2.0.1
-torchaudio==2.0.2
+pyannote.audio>=3.1
+torch>=2.6.0,<2.7.0
+torchaudio>=2.6.0,<2.7.0
 librosa>=0.10.0
 soundfile>=0.12.0
 numpy>=1.24.0,<2.0.0
