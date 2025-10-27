@@ -107,6 +107,13 @@ python -m pip install -r requirements.txt
 After installing with `pip install .`, you can use the `lexless` command directly:
 
 Basic usage:
+
+
+Process a local audio file instead of downloading:
+```bash
+lexless path/to/podcast.mp3 --file --hf-token your_token_here
+```
+
 ```bash
 lexless https://www.youtube.com/watch?v=VIDEO_ID
 ```
